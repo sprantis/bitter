@@ -1,0 +1,45 @@
+{{!-- Code referenced from Module 14 - Mini Project --}}
+
+{{!-- Single Post --}}
+<div>
+    {{!-- Limited access to session variable below, work on later --}}
+    {{!-- <div>{{session.currUserId}}</div> --}}
+    <div class="card w-75 mx-auto mb-5">
+        <div class="card-header">
+            <h4>{{postTitle}}</h4>
+            <h6>Posted by {{user.username}}  on {{formatDate dateCreated}}</h6>
+        </div>
+        <div class="card-body">
+            <p>{{postContent}}</p>
+        </div>
+    </div>
+
+    {{!-- If the user is logged in, render the form to add new comments --}}
+    {{#if loggedIn}}
+    <div class="my-5 mx-auto w-75">
+        <form id="add-comment-form">
+            <label class="form-label">Add a comment</label>
+            <textarea class="form-control" name="comment-text" rows="3"></textarea>
+            <div class="mt-4">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    {{/if}}
+
+    {{!-- Existing Comments --}}
+    <div class="mt-4 mx-auto w-75">
+        <h4>Comments:</h4>
+        {{!-- render each comment available for the post using the 'comment' partial --}}
+        {{#each comments as |comment|}}
+            {{> comment}}
+        {{/each}}
+
+        {{!-- If the user is signed in, render the script tag for the add comment form --}}
+        {{#if loggedIn}}
+        <script src="/js/addComment.js"></script>
+        {{/if}}
+    </div> 
+
+</div>
+

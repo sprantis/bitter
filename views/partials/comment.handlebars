@@ -1,0 +1,13 @@
+<div class="my-4">
+    {{!-- NOT WORKING --}}
+    {{!-- <div>{{userId}} {{currUserId}}</div> --}}
+    <div class="card" data-comment-id="{{id}}">
+        <div class="card-body">
+            <p>{{commentText}}</p>
+            <div class="d-flex justify-content-end">
+                <p style="margin: 0px;">-- {{user.username}} , {{formatDate dateCreated}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+

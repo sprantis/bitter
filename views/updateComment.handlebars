@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <h2 class="mb-5">Update Comment</h2>
+    <form id="update-comment-form">
+        <div class="mb-3">
+            <label class="form-label" for="comment-text"><h5>Comment Text</h5></label>
+            <textarea class="form-control" name="comment-text" rows="3">{{comment.commentText}}</textarea>
+        </div>
+        <div class="row">
+            <div class="col mt-4">
+                <button class="btn btn-primary" type="submit">Update Comment</button>
+            </div>
+            <div class="col mt-4 d-flex justify-content-end">
+                <button type="click" class="btn btn-danger" id="delete-comment-btn">Delete Comment</button>
+            </div>
+        </div>
+    </form>
+
+
+    <script src="/js/updateComment.js"></script>
+    <script src="/js/deleteComment.js"></script>
+</div>
