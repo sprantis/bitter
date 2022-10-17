@@ -1,0 +1,17 @@
+[
+    {
+        "userId": 1,
+        "postId": 1,
+        "commentText": "stop complaining"
+    },
+    {
+        "userId": 2,
+        "postId": 2,
+        "commentText": "OMG that is so awful"
+    },
+    {
+        "userId": 3,
+        "postId": 3,
+        "commentText": "a SIGN of the TIMES..."
+    }
+  ]
