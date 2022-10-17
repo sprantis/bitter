@@ -18,7 +18,7 @@ Bitter is the better blog site to really let the world know what grinds your gea
 Install Node.js before using this application.
 
 ## Usage Information
-Deployed Link:[]
+Deployed Link:[https://the-bitter-blog.herokuapp.com/]
 
 <!-- ![Bitter Screenshot](./public/assets/images/bitter-screenshot.png) -->
 
