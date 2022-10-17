@@ -1,0 +1,19 @@
+/* Code referenced from Module 14 - Mini Project */
+
+/* https://stackoverflow.com/questions/41448221/bootstrap-fullscreen-layout-with-100-height */
+
+.fill {
+    min-height: 100vh;
+    height: 100vh;
+}
+
+.c-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.column-item-spacing {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
