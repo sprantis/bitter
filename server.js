@@ -10,6 +10,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
+const User = require('./models/User');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -54,8 +55,31 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
 
 app.use(routes);
+
+app.get('/asdf', (req, res) => {
+    res.send("Hello World!")
+})
+
+app.patch('/update', async (req, res) => {
+    console.log(`req.body: ${JSON.stringify(req.body)}`);
+    const user = await User.findOne({where:{id:req.session.currUserId}});
+    if(!user){
+        return res.status(404).send(`User Not Found. ${req.session.currUserId}`)
+    }
+    user.pfpURL = req.body.url
+    await user.save()
+    res.send("Updated Profile Picture")
+});
+
+app.get('/getUserInfo', async (req,res) => {
+    const user = await User.findOne({ where: { id: req.session.currUserId}});
+
+    return res.json({id: user.id, pfpURL: user.pfpURL})
+});
+
 
 // Connect to the database before starting the Express.js server
 sequelize.sync({ force: false }).then(() => {

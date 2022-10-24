@@ -34,6 +34,10 @@ User.init(
         len: [8],
       },
     },
+    pfpURL: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    }
   },
   {
     hooks: {
