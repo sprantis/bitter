@@ -1,14 +1,17 @@
 [
   {
     "username": "AngryAaron",
-    "password": "password"
+    "password": "password",
+    "pfpURL": ""
   },
   {
     "username": "DisgustedDiana",
-    "password": "password"
+    "password": "password",
+    "pfpURL": ""
   },
   {
     "username": "BaffledBarry",
-    "password": "password"
+    "password": "password",
+    "pfpURL": ""
   }
 ]

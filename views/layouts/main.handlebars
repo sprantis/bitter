@@ -4,13 +4,14 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bitter.</title>
-  {{!-- Boostrap CSS Only --}}
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="icon" type="image/png" href="/assets/images/angry-emoji.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitter.</title>
+    {{!-- Boostrap CSS Only --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/assets/images/angry-emoji.png">
 </head>
 
 <body>
@@ -23,6 +24,12 @@
                             <h1 class="mb-5">
                                 <a href="/">Bitter. <i class="fa-solid fa-face-angry"></i></a>
                             </h1>
+                            
+                            <div id="homePagePfpContainer" style="width: 100px; height: 100px;">
+                                <img id="homePagePfp" style="height: 100%; width: 100%;">
+                            </div>
+                            
+                            
                             <nav class="c-column">
                                 <h4 class="column-item-spacing">
                                     <a href="/">
@@ -39,18 +46,25 @@
                             </nav>
                         </header>
                         <footer>
+                            <!-- button for adding a profile picture to user account -->
+                            {{#if loggedIn}}
+                            <button id="profilePic" class="btn btn-primary column-item-spacing">Change Profile
+                                Picture</button>
+                            {{/if}}
+
                             <!-- Conditionally render sign in or logout links -->
                             {{#if loggedIn}}
-                                <button id="logout" class="btn btn-primary column-item-spacing">
-                                    Logout
+                            <button id="logout" class="btn btn-primary column-item-spacing">
+                                Logout
+                            </button>
+                            {{else}}
+                            <a href="/signin">
+                                <button class="btn btn-primary column-item-spacing">
+                                    Sign In
                                 </button>
-                                {{else}}
-                                <a href="/signin">
-                                    <button class="btn btn-primary column-item-spacing">
-                                        Sign In
-                                    </button>
-                                </a>
+                            </a>
                             {{/if}}
+
                             <div class="py-3">
                                 <h6>Bitter. © 2022</h6>
                             </div>
@@ -60,25 +74,47 @@
             </div>
             <div class="col">
                 <main class="container-fluid mt-5">
-                <!-- Render the sub layout -->
-                {{{ body }}}
+                    <!-- Render the sub layout -->
+                    {{{ body }}}
                 </main>
 
             </div>
         </div>
     </div>
 
-    
-    
+
+
 
     <!-- Bootstrap JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
     {{!-- Font Awesome --}}
     <script src="https://kit.fontawesome.com/b3e3f4c117.js" crossorigin="anonymous"></script>
+    <!-- Script for the filestack file picker -->
+    <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
     <!-- Render script for logged in users only -->
     {{#if loggedIn}}
+    <script>
+      
+        fetch('/getUserInfo')
+        .then(response => response.json())
+
+        .then((data) => {
+            console.log("the data is below");
+            console.log(data);
+            document.getElementById('homePagePfp').src = data.pfpURL;
+        })
+        .catch((error) => {
+
+        })
+    
+    </script>
+
     <script src="/js/logout.js"></script>
     {{/if}}
+
+    <script src="/js/profilePic.js"></script>
 </body>
 
 </html>

@@ -29,7 +29,8 @@ router.get('/', async (req, res) => {
         // Pass the serialized data and session flag into the template, then render the template
         res.render('homepage', { 
             posts, 
-            loggedIn: req.session.loggedIn 
+            loggedIn: req.session.loggedIn,
+            currUserId: req.session.currUserId,
         });
     } catch (err) {
         // return the error as JSON with a 500 ERROR status

@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
             // fields to include in the returned data
             attributes: { exclude: ['password'] },
             // order returned data by ascending order
-            order: [['username', 'ASC']] 
+            order: ['username', 'ASC', 'pfpURL'] 
         });
 
         // return the data as JSON with a 200 OK status
@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
 
 // GET a single user
 router.get('/:id', async (req, res) => {
@@ -168,5 +169,8 @@ router.delete('/:id', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+
+
 
 module.exports = router;
