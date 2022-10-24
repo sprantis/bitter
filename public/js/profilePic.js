@@ -14,7 +14,8 @@ const options = {
 
     transformations: {
         crop: false,
-        circle: true
+        circle: true,
+        force: true
     },
 
     onFileUploadFinished(file) {
