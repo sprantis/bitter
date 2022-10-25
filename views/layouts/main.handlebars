@@ -15,32 +15,35 @@
 </head>
 
 <body>
-    <div class="container-fluid fill">
+    <div class="container-fluid fill text-danger">
         <div class="row fill">
             <div class="col-2">
-                <div class="container-fluid fill">
+                <div class="container-fluid fill gray">
                     <div class="c-column fill">
                         <header>
                             <h1 class="mb-5">
-                                <a href="/">Bitter. <i class="fa-solid fa-face-angry"></i></a>
+                                <a href="/" class="text-danger">Bitter. <i class="text-danger fa-solid fa-face-angry"></i></a>
                             </h1>
                             
+                            
                             <div id="homePagePfpContainer" style="width: 100px; height: 100px;">
+                                {{#if loggedIn}}
                                 <img id="homePagePfp" style="height: 100%; width: 100%;">
+                                {{/if}}
                             </div>
                             
                             
                             <nav class="c-column">
                                 <h4 class="column-item-spacing">
-                                    <a href="/">
+                                    <a href="/" class="text-danger">
                                         Homepage
-                                        <i class="fa-sharp fa-solid fa-house-chimney"></i>
+                                        <i class="text-danger fa-sharp fa-solid fa-house-chimney"></i>
                                     </a>
                                 </h4>
                                 <h4 class="column-item-spacing">
-                                    <a href="/dashboard">
+                                    <a href="/dashboard" class="text-danger">
                                         Dashboard
-                                        <i class="fa-solid fa-gauge-simple-high"></i>
+                                        <i class="text-danger fa-solid fa-gauge-simple-high"></i>
                                     </a>
                                 </h4>
                             </nav>
@@ -48,18 +51,18 @@
                         <footer>
                             <!-- button for adding a profile picture to user account -->
                             {{#if loggedIn}}
-                            <button id="profilePic" class="btn btn-primary column-item-spacing">Change Profile
+                            <button id="profilePic" class="btn btn-danger column-item-spacing">Change Profile
                                 Picture</button>
                             {{/if}}
 
                             <!-- Conditionally render sign in or logout links -->
                             {{#if loggedIn}}
-                            <button id="logout" class="btn btn-primary column-item-spacing">
+                            <button id="logout" class="btn btn-danger column-item-spacing">
                                 Logout
                             </button>
                             {{else}}
                             <a href="/signin">
-                                <button class="btn btn-primary column-item-spacing">
+                                <button class="btn btn-danger column-item-spacing">
                                     Sign In
                                 </button>
                             </a>
@@ -72,8 +75,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <main class="container-fluid mt-5">
+            <div class="col bg-container d-flex justify-content-center">
+                <img src="/assets/images/angry-face.jpeg" class="bg-img" />
+                <main class="container-fluid mt-5 foreground">
                     <!-- Render the sub layout -->
                     {{{ body }}}
                 </main>
@@ -97,24 +101,25 @@
     {{#if loggedIn}}
     <script>
       
-        fetch('/getUserInfo')
+        fetch('/api/users/getUserInfo')
         .then(response => response.json())
 
         .then((data) => {
-            console.log("the data is below");
-            console.log(data);
+            {{!-- console.log("the data is below");
+            console.log(data); --}}
             document.getElementById('homePagePfp').src = data.pfpURL;
         })
         .catch((error) => {
-
+            console.log(error);
         })
     
     </script>
 
     <script src="/js/logout.js"></script>
+    <script src="/js/profilePic.js"></script>
     {{/if}}
 
-    <script src="/js/profilePic.js"></script>
+
 </body>
 
 </html>
