@@ -21,7 +21,7 @@
             <label class="form-label">Add a comment</label>
             <textarea class="form-control" name="comment-text" rows="3"></textarea>
             <div class="mt-4">
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-dark" type="submit">Submit</button>
             </div>
         </form>
     </div>
@@ -29,7 +29,7 @@
 
     {{!-- Existing Comments --}}
     <div class="mt-4 mx-auto w-75">
-        <h4>Comments:</h4>
+        <h4>Comments: </h4>
         {{!-- render each comment available for the post using the 'comment' partial --}}
         {{#each comments as |comment|}}
             {{> comment}}
