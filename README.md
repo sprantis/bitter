@@ -20,7 +20,7 @@ Install Node.js before using this application.
 ## Usage Information
 Deployed Link:[https://the-bitter-blog.herokuapp.com/]
 
-<!-- ![Bitter Screenshot](./public/assets/images/bitter-screenshot.png) -->
+![Bitter Screenshot](./public/assets/images/bitter-blog-screenshot.png)
 
 ## License
 [MIT](https://opensource.org/licenses/MIT)
