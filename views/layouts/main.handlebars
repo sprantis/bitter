@@ -25,12 +25,12 @@
                                 <a href="/" class="text-danger">Bitter.  <i class="text-danger fa-solid fa-face-angry"></i></a>
                             </h1>
                             
-                            
-                            <div id="homePagePfpContainer" style="width: 100px; height: 100px;">
+                            {{!-- Debugging needed for below code --}}
+                            {{!-- <div id="homePagePfpContainer" style="width: 100px; height: 100px;">
                                 {{#if loggedIn}}
                                 <img id="homePagePfp" style="height: 100%; width: 100%;">
                                 {{/if}}
-                            </div>
+                            </div> --}}
                             
                             
                             <nav class="c-column">
@@ -50,10 +50,12 @@
                         </header>
                         <footer>
                             <!-- button for adding a profile picture to user account -->
-                            {{#if loggedIn}}
+
+                            {{!-- Debugging needed for below code --}}
+                            {{!-- {{#if loggedIn}}
                             <button id="profilePic" class="btn btn-danger column-item-spacing">Change Profile
                                 Picture</button>
-                            {{/if}}
+                            {{/if}} --}}
 
                             <!-- Conditionally render sign in or logout links -->
                             {{#if loggedIn}}
@@ -96,10 +98,10 @@
     {{!-- Font Awesome --}}
     <script src="https://kit.fontawesome.com/b3e3f4c117.js" crossorigin="anonymous"></script>
     <!-- Script for the filestack file picker -->
-    <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+    {{!-- <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script> --}}
     <!-- Render script for logged in users only -->
     {{#if loggedIn}}
-    <script>
+    {{!-- <script>
       
         fetch('/api/users/getUserInfo')
         .then(response => response.json())
@@ -113,10 +115,10 @@
             console.log(error);
         })
     
-    </script>
+    </script> --}}
 
     <script src="/js/logout.js"></script>
-    <script src="/js/profilePic.js"></script>
+    {{!-- <script src="/js/profilePic.js"></script> --}}
     {{/if}}
 
 

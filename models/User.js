@@ -33,11 +33,11 @@ User.init(
       validate: {
         len: [8],
       },
-    },
-    pfpURL: {
-      type: DataTypes.STRING,
-      allowNull: true,
     }
+    // pfpURL: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    // }
   },
   {
     hooks: {

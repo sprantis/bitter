@@ -12,7 +12,11 @@ router.get('/', async (req, res) => {
             // fields to include in the returned data
             attributes: { exclude: ['password'] },
             // order returned data by ascending order
-            order: ['username', 'ASC', 'pfpURL'] 
+            order: [
+                'username', 
+                'ASC'
+                // 'pfpURL'
+            ] 
         });
 
         // return the data as JSON with a 200 OK status
