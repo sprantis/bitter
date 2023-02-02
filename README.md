@@ -22,6 +22,8 @@ Install Node.js before using this application.
 
 ![Bitter Screenshot](./public/assets/images/bitter-blog-screenshot.png)
 
+To get started, create an account in order to view your dashboard. From there, feel free to create a new post, or check out your homepage for other posts to comment on!
+
 ## License
 [MIT](https://opensource.org/licenses/MIT)
 
